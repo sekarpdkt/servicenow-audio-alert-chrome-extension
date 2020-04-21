@@ -13,5 +13,10 @@
     <h3>Some sample tool bar icon with count:</h3><br>
     <img src="images/split.png" alt=""  style="border:2px solid black"/>
     <img src="images/sum.png" alt="" style="border:2px solid black"/>
+    <h3>Credits:</h3>
+    https://github.com/Codydanieljones/Service-Now-Alerts
+    Forked from above and modified to provide audio alert support
+
+
 </body>
 </html>
