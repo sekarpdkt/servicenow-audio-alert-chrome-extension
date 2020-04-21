@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>SNOW Alert Options</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="css/options.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+    <div class="alert alert-success" id="status"></div>
+
+    <div class="settings">
+
+        <fieldset>
+            <legend>Servicenow instance detail</legend>
+            <div class="form-group">
+                <label for="pwd">Base URL:</label>
+                <input id="idrooturl" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://<your instance>.service-now.com"/>
+                <span class="help-block">This field requires the Base URL for your Service Now Instance.</span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="pwd">Notify 1 URL:</label>
+                <input id="idprimaryq" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://<your instance>.service-now.com/task_list.do?sysparm_view="/>
+                <span class="help-block">Please enter a queue you would like to receive notifications.<br /><strong>This URL cannot contain the "nav_to.do" URL Parameter. To get the list url right click in the list and Get Frame Source. See help below.</strong></span>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Notify 2 URL:</label>
+                <input id="idsecondaryq" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://<your instance>.service-now.com/task_list.do?sysparm_view="/>
+                <span class="help-block">Please enter a queue you would like to receive notifications.<br /><strong>This URL cannot contain the "nav_to.do" URL Parameter. To get the list url right click in the list and Get Frame Source. See help below.</strong></span>
+            </div>
+            <div class="form-group">
+                <label>Split Badge:</label>
+                <br>
+                <input type="radio" name="splitcount" class="splitcount" id="splitcounttrue" value="true">TRUE
+                <input type="radio" name="splitcount" class="splitcount" id="splitcountfalse" value="false">FALSE
+                <span class="help-block">Select True if you would like to split the count ex. "2 | 5". Or select False to have the sum of both queues displayed ex. "7".</span>
+            </div>
+            <br/><br/>
+            <p>Need help? <a href="help.html">Click Here!</a></p>
+            <p>Have an Issue?<a href="https://github.com/Codydanieljones/Service-Now-Alerts/issues">Click Here!</a></p>
+            <p><a href="https://github.com/Codydanieljones/Service-Now-Alerts">View on GitHub</a></p>
+            <button class="btn btn-success" id="save">Save</button>
+            <button class="btn btn-success" id="clear">Clear</button></fieldset>
+    </div>
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/options.js"></script>
+    <script src="js/background.js"></script>
+</body>
+
+</html>

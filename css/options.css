@@ -1,0 +1,44 @@
+.settings {
+	padding: 25px;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+ul{
+	list-style: none;
+}
+
+.myHide1, .myHide2, .myHide3{
+	display: none;
+	cursor: pointer;
+}
+
+.myShow1, .myShow2, .myShow3{
+	cursor: pointer;
+}
+
+.myHide1 li, .myHide2 li, .myHide3 li{
+	margin-left: 20px;
+	font-size: 1.2em;
+}
+
+.hideCat{
+	font-size: 1.5em;
+}
+
+.info{
+font-size: 1.2em;
+font-weight: bold;
+
+}
+
+.queue1, .queue2,
+.queue3, .queue4,
+.list1, .list2,
+.list3, .list4{
+	display: none;
+}

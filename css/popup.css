@@ -1,0 +1,29 @@
+.popup {
+	padding: 20px;
+	width: 360px;
+	border: 2px solid #E7FFB0;
+	color: black;
+}
+
+.inputwrap{
+	text-align: center;
+}
+
+.create,
+.call,
+.incident,
+.change,
+.request,
+.search,
+.queues,
+.queue1,
+.queue2,
+.queue3,
+.queue4,
+.lists,
+.list1,
+.list2,
+.list3,
+.list4{
+	display: none;
+}
