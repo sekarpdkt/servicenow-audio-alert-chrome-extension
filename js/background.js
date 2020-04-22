@@ -30,9 +30,12 @@ if ($currentNumberTotal == undefined) {
 
 chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason == "install") {
-        chrome.tabs.create({
-            'url': 'chrome://extensions/?options=' + chrome.runtime.id
-        });
+        try{
+            chrome.tabs.create({
+                'url': 'chrome://extensions/?options=' + chrome.runtime.id
+            });
+        }
+        catch(e){}
     }
     getSavedData();
 });
