@@ -16,19 +16,19 @@
             <legend>Servicenow instance detail</legend>
             <div class="form-group">
                 <label for="pwd">Base URL:</label>
-                <input id="idrooturl" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://<your instance>.service-now.com"/>
-                <span class="help-block">This field requires the Base URL for your Service Now Instance.</span>
+                <input id="idrooturl" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://\<your instance>.service-now.com"/>
+                <span class="help-block">Enter the base URL your Service Now Instance. Do not include "/" at the end.</span>
             </div>
             <br/>
             <div class="form-group">
                 <label for="pwd">Notify 1 URL:</label>
-                <input id="idprimaryq" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://<your instance>.service-now.com/task_list.do?sysparm_view="/>
-                <span class="help-block">Please enter a queue you would like to receive notifications.<br /><strong>This URL cannot contain the "nav_to.do" URL Parameter. To get the list url right click in the list and Get Frame Source. See help below.</strong></span>
+                <input id="idprimaryq" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://\<your instance>.service-now.com/task_list.do?sysparm_view="/>
+                <span class="help-block">Please enter URL of a queue for which you would like to receive notifications.<br />This URL is normally your filtered incident list / report URL. See <strong><a href="help.html">help</a></strong> below.</span>
             </div>
             <div class="form-group">
                 <label for="pwd">Notify 2 URL:</label>
                 <input id="idsecondaryq" type="text" class="form-control input-sm" style="width:50%;" placeholder="https://<your instance>.service-now.com/task_list.do?sysparm_view="/>
-                <span class="help-block">Please enter a queue you would like to receive notifications.<br /><strong>This URL cannot contain the "nav_to.do" URL Parameter. To get the list url right click in the list and Get Frame Source. See help below.</strong></span>
+                <span class="help-block">Please enter URL of a queue for which you would like to receive notifications.<br /><br />This URL is normally your filtered incident list / report URL. See <strong><a href="help.html">help</a></strong> below.</span>
             </div>
             <div class="form-group">
                 <label>Split Badge:</label>
@@ -45,8 +45,6 @@
             <button class="btn btn-success" id="clear">Clear</button>
         </fieldset>
     </div>
-
-
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

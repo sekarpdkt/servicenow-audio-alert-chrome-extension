@@ -164,7 +164,7 @@ function getData(url) {
         },
         error: function(xhr, status) {
             chrome.browserAction.setBadgeText({
-                text: "X"
+                text: "Err"
             });
         }
     })
@@ -247,6 +247,10 @@ function showNotification(ticketNumber, ticketDescription, severity) {
         title: ticketNumber,
         message: ticketDescription
     }, function(notificationId) {});
+    
+
+    //include this line if you want to clear the notification after 5 seconds
+    setTimeout(function(){chrome.notifications.clear("reminder",function(){});},5000);
 }
 
 

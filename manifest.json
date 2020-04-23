@@ -7,12 +7,12 @@
   "version": "0.0.3",
 
   "background": {
-    "scripts": ["js/background.js"],
+    "scripts": ["js/jquery.min.js","js/background.js"],
     "persistent": true
   },
     "browser_specific_settings": {
         "gecko": {
-            "id": "XYZ12343423.sekarpdkt@hotmail.com",
+            "id": "42d48c97-50c6-4bca-a0bc-bada6fd0343a.sekarpdkt@hotmail.com",
             "strict_min_version": "64.0"
         }
     },
@@ -31,8 +31,6 @@
     "alarms",
 	"notifications",
 	"storage",
-	"idle",
-	"tabs",
 	"https://*.service-now.com/*"
   ]
 }
