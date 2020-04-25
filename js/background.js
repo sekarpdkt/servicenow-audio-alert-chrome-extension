@@ -171,14 +171,12 @@ function getQueues(items) {
 
 
         if (totalCount >0 && items.nonZeroCount=="on") {
-            $ticketNumberGlobal = data['number'];
             if(items.disableAlarm=="on")
                 audioNotification();
         }
         else{
             difference = newList.filter(x => !oldList.includes(x));
             if(difference.length>0){
-                $ticketNumberGlobal = data['number'];
                 if(items.disableAlarm=="on")
                     audioNotification();
             }
