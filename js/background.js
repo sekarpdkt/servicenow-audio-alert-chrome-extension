@@ -171,13 +171,13 @@ function getQueues(items) {
 
 
         if (totalCount >0 && items.nonZeroCount=="on") {
-            if(items.disableAlarm=="on")
+            if(items.disableAlarm!="on")
                 audioNotification();
         }
         else{
             difference = newList.filter(x => !oldList.includes(x));
             if(difference.length>0){
-                if(items.disableAlarm=="on")
+                if(items.disableAlarm!="on")
                     audioNotification();
             }
         }
