@@ -64,7 +64,7 @@ function resetAlarm(duration){
     }) 
 }
 function getSavedData() {
-    chrome.storage.sync.get(['rooturl', 'secondary', 'primary', 'splitcount', 'disableAlarm', 'disablePoll', 'nonZeroCount', 'alarmOnNewEntry'], getQueues);
+    chrome.storage.sync.get(['rooturl', 'secondary', 'primary', 'splitcount', 'disableAlarm', 'disablePoll', 'alarmCondition'], getQueues);
     //  chrome.storage.sync.get(null, function (data) { console.info(data) });
 
 }
@@ -93,8 +93,7 @@ function getQueues(items) {
         newList=[];
         return;
     }
-    if(items.nonZeroCount == null && items.alarmOnNewEntry==null)
-        items.nonZeroCount ="on";
+
     var primaryURL = changeURLforRESTAPI(items.primary),
         secondaryURL = changeURLforRESTAPI(items.secondary),
         count = 0;
@@ -170,7 +169,7 @@ function getQueues(items) {
         }
 
 
-        if (totalCount >0 && items.nonZeroCount=="on") {
+        if (totalCount >0 && items.alarmCondition =="nonZeroCount") {
             if(items.disableAlarm!="on")
                 audioNotification();
         }
@@ -185,6 +184,7 @@ function getQueues(items) {
         difference=[]
         oldList=oldList.concat(newList)
         myStorage.setItem('lastPollAt', new Date());
+        console.log(new Date())
         
         
     }

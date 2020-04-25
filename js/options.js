@@ -47,8 +47,10 @@ function save_options() {
         pollInterval=5;
     if (isNaN(pollInterval)) 
         pollInterval=5;
-    var $followWorkflow
-		var saveMe = {
+
+
+    
+    var saveMe = {
 			'primary': primary,
 			'rooturl': rooturl,
 			'secondary': secondary,
@@ -56,17 +58,9 @@ function save_options() {
       'splitcount' : $("input[name='splitcount']:checked").val(),
       'disableAlarm' : $("input[name='disableAlarm']:checked").val(),
       'disablePoll' : $("input[name='disablePoll']:checked").val(),
-      'nonZeroCount' : $("input[name='nonZeroCount']:checked").val(),
-      'alarmOnNewEntry' : $("input[name='alarmOnNewEntry']:checked").val()
+      'alarmCondition' : $("input[name='alarmCondition']:checked").val()
 		}
 
-
-    if(saveMe.nonZeroCount == saveMe.alarmOnNewEntry){
-        $("#nonZeroCount").attr("checked", true);
-        $("#alarmOnNewEntry").attr("checked", false);
-        saveMe.nonZeroCount ="on";
-        saveMe.alarmOnNewEntry =null;
-    }
 
     chrome.storage.sync.set(saveMe, function() {
         showSuccessMessage("Options saved!")
@@ -132,8 +126,7 @@ function restore_options() {
                              'disableAlarm',
                              'disablePoll',
                              'pollInterval',
-                             'alarmOnNewEntry',
-                             'nonZeroCount',
+                             'alarmCondition',
                              'splitcount'], function(items) {
         if(items.splitcount == "true"){
           $("#splitcounttrue").attr("checked", true);
@@ -141,6 +134,15 @@ function restore_options() {
           $("#splitcountfalse").attr("checked", true);
         }
 
+
+        if(items.alarmCondition == "nonZeroCount"){
+          $("#nonZeroCount").attr("checked", true);
+        }else {
+          $("#alarmOnNewEntry").attr("checked", true);
+        }
+        
+        
+        
         if(items.disableAlarm == "on"){
           $("#disableAlarm").attr("checked", true);
         }
@@ -150,14 +152,7 @@ function restore_options() {
           $("#disablePoll").attr("checked", true);
         }
         
-        if(items.alarmOnNewEntry == "on"){
-          $("#alarmOnNewEntry").attr("checked", true);
-        }
-        
-        if(items.nonZeroCount == "on"){
-          $("#nonZeroCount").attr("checked", true);
-        }
-        
+
         var pollInterval=parseInt(items.pollInterval);
         if(pollInterval<1 || pollInterval==undefined) 
             pollInterval=5;

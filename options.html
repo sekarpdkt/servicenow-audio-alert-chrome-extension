@@ -60,22 +60,17 @@
                     <span class="help-block">It will disable the polling. As no polling is happening alarm will also not come.</span>
                 </div>
                 <br/>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="nonZeroCount"  value="on"  name="nonZeroCount" Checked>
-                    <label class="custom-control-label" for="nonZeroCount">Alarm on non zero count</label>
-                    <span class="help-block">If the queue count is non zero, it will initiate alarm.</span>
-                </div>
-                <br/>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="alarmOnNewEntry"  value="on"  name="alarmOnNewEntry">
-                    <label class="custom-control-label" for="alarmOnNewEntry">Alarm on new entry</label>
-                    <span class="help-block">Alarm on new entry. It is bit more memory hungry and use it bit carefully. Dont try on queue size of >100.</span>
-                    <span class="help-block">Alarm on new entry and zero count both are enabled, alarm on zero count will be assumed.</span>
-                </div>
-                <br/>                                
 
+                <div class="form-group">
+                    <label>Playe music when:</label>
+                    <br>
+                    <input type="radio" name="alarmCondition" class="splitcount" id="nonZeroCount" value="nonZeroCount"> Count is >0.
+                    <input type="radio" name="alarmCondition" class="splitcount" id="alarmOnNewEntry" value="alarmOnNewEntry"> When new ticket is found in list.
+                    <span class="help-block">Select count is >0, if you would like to play music when record count of the queue >0, mean you need to act upon on that new record with in next polling else music will be played during next polling also. Select when new ticket is found in list, if you want to play music if a new ticket found in that queue. Task numbers are compared between two polling and music is played if new number found".</span>
+                </div>
+                    
                 <div class="custom-control custom-switch">
-                    <label class="custom-control-label" for="alarmOnNewEntry">Poll interval (min):</label>
+                    <label class="custom-control-label" for="pollInterval">Poll interval (min):</label>
                     <input id="pollInterval" type="text" class="form-control input-sm" style="width:50%;" placeholder=5/>
                     <span class="help-block">Sets the time difference better poll. Default 5min.</span>
                 </div>
