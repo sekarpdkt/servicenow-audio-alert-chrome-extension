@@ -9,9 +9,15 @@
 </head>
 
 <body>
-
+    <div class="alert alert-success" id="status"></div>
     <div class="settings">
 
+    
+            <legend>Latest Reading info</legend>
+            <div class="form-group">
+                <p class="help-block"><strong>Last poll @:</strong><span id="lastPollAt"></span></p>
+            </div>
+    
         <fieldset>
             <legend>Servicenow instance detail</legend>
             <div class="form-group">
@@ -37,7 +43,48 @@
                 <input type="radio" name="splitcount" class="splitcount" id="splitcountfalse" value="false">FALSE
                 <span class="help-block">Select True if you would like to split the count ex. "2 | 5". Or select False to have the sum of both queues displayed ex. "7".</span>
             </div>
+        <fieldset>
+
             <br/><br/>
+        <fieldset>
+            <legend>Monitoring options</legend>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="disableAlarm"  value="on" name="disableAlarm">
+                    <label class="custom-control-label" for="disableAlarm">Disable alarm</label>
+                    <span class="help-block">It will disable the alarm, but polling will continue in the backend.</span>
+                </div>
+                <br/>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="disablePoll"  value="on"  name="disablePoll">
+                    <label class="custom-control-label" for="disablePoll">Disable poll</label>
+                    <span class="help-block">It will disable the polling. As no polling is happening alarm will also not come.</span>
+                </div>
+                <br/>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="nonZeroCount"  value="on"  name="nonZeroCount" Checked>
+                    <label class="custom-control-label" for="nonZeroCount">Alarm on non zero count</label>
+                    <span class="help-block">If the queue count is non zero, it will initiate alarm.</span>
+                </div>
+                <br/>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="alarmOnNewEntry"  value="on"  name="alarmOnNewEntry">
+                    <label class="custom-control-label" for="alarmOnNewEntry">Alarm on new entry</label>
+                    <span class="help-block">Alarm on new entry. It is bit more memory hungry and use it bit carefully. Dont try on queue size of >100.</span>
+                    <span class="help-block">Alarm on new entry and zero count both are enabled, alarm on zero count will be assumed.</span>
+                </div>
+                <br/>                                
+
+                <div class="custom-control custom-switch">
+                    <label class="custom-control-label" for="alarmOnNewEntry">Poll interval (min):</label>
+                    <input id="pollInterval" type="text" class="form-control input-sm" style="width:50%;" placeholder=5/>
+                    <span class="help-block">Sets the time difference better poll. Default 5min.</span>
+                </div>
+                <br/>                                
+
+                
+        <fieldset>
+        <fieldset>
+            <legend>Help and other info:</legend>
             <p>Need help? <a href="help.html">Click Here!</a></p>
             <p>Have an Issue?<a href="https://github.com/sekarpdkt/servicenow-audio-alert-chrome-extension/issues">Click Here!</a></p>
             <p><a href="https://github.com/sekarpdkt/servicenow-audio-alert-chrome-extension">View on GitHub</a></p>

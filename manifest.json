@@ -31,6 +31,7 @@
     "alarms",
 	"notifications",
 	"storage",
+	"idle",
 	"https://*.service-now.com/*"
   ]
 }
