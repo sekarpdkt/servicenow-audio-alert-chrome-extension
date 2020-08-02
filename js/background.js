@@ -64,6 +64,7 @@ function resetAlarm(duration){
     }) 
 }
 function getSavedData() {
+console.log("HiHi")
     chrome.storage.sync.get(['rooturl', 'secondary', 'primary', 'splitcount', 'disableAlarm', 'disablePoll', 'alarmCondition'], getQueues);
     //  chrome.storage.sync.get(null, function (data) { console.info(data) });
 
@@ -87,13 +88,14 @@ function getlastPollAt() {
 }
 
 function getQueues(items) {
+console.log("HiHi")
     if(items.disablePoll=="on"){
         oldList=[];
         difference=[];
         newList=[];
         return;
     }
-
+console.log("HiHi")
     var primaryURL = changeURLforRESTAPI(items.primary),
         secondaryURL = changeURLforRESTAPI(items.secondary),
         count = 0;
@@ -198,24 +200,29 @@ function getDataREST(url) {
     var timestamps = [];
     var oldest = [];
     var dataOutput;
+var thisQData=[]
+console.log(url)
     $.ajax({
         type: "get",
         url: url,
         async: false,
         dataType: "json",
         success: function(data) {
-            $queueData = $(data);
+            thisQData= data.records;
         },
         error: function(xhr, status) {
             chrome.browserAction.setBadgeText({
-                text: "Err"
+                text: "Errr"
             });
         }
     })
-    var $qTickets = $queueData[0].result.length;
+    var $qTickets = thisQData.length;
     var max = 0;
+console.log(thisQData)
+console.log(typeof thisQData)
+console.log($qTickets)
     if ($qTickets > 0) {
-        $queueData[0].result.forEach(function(record) {
+        thisQData.forEach(function(record) {
             var $qticketNumber = record.number;
             newList.push($qticketNumber)
             if ($qticketNumber.indexOf("TASK") != -1) {
@@ -402,14 +409,14 @@ function changeURLforRESTAPI(url) {
 
     if(protocol!="")
         protocol=protocol+"//";
-    pathname="/api/now/table"+pathname.replace("_list.do","");
+    //pathname="/api/now/table"+pathname.replace("_list.do","");
     
     // Search parameter in the URL 
     let restURL=`${protocol}//${host}${pathname}${search}`;
 
     restURL=removeParam("sysparm_fields",restURL)
     restURL=removeParam("sysparm_view",restURL)
-    restURL=restURL+"&sysparm_fields=number%2Cseverity%2Cshort_description%2Cpriority%2Csys_id%2Csys_updated_on";
+    restURL=restURL+"&JSONv2&sysparm_fields=number%2Cseverity%2Cshort_description%2Cpriority%2Csys_id%2Csys_updated_on";
     return restURL;
 }
 
