@@ -30,6 +30,7 @@
   "permissions": [
     "alarms",
 	"notifications",
+	"tabs",
 	"storage",
 	"idle",
 	"https://*.service-now.com/*"
